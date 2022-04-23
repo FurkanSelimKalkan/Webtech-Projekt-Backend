@@ -1,7 +1,4 @@
-
 ![](C:\Users\furka\Desktop\Desktop\Herunterladen.png)
-
-
 # Webtech-Projekt
 
 Entscheidungshilfe für Outfits und Klamotteneinkäufe über Voting-Prinzip
