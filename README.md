@@ -12,4 +12,3 @@ Entscheidungshilfe für Outfits und Klamotteneinkäufe über Voting-Prinzip
 ### Projekt erstellt von:
 
 *Furkan Selim Kalkan, Christopher Leibiger*
-
