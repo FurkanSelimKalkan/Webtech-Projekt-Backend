@@ -3,7 +3,7 @@ POST http://localhost:8080/votings
 Content-Type: application/json
 
 {
-  "title": "Hallo",
+  "titles": "Hallo",
   "image1": "img1",
   "image2": "img2",
   "votingsImage1": 1,
