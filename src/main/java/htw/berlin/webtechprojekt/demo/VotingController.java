@@ -14,7 +14,7 @@ public class VotingController {
         return service.save(voting);
     }
 
-    @GetMapping("/things/{id}")
+    @GetMapping("/votings/{id}")
     public Voting getService(@PathVariable String id){
         Long votingId = Long.parseLong(id);
         return service.get(votingId);
