@@ -14,9 +14,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "this-or-that-webapp"
           heroku_email: "christopher.leibiger@student.htw-berlin.de"
-
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY_FURKAN}}
-          heroku_app_name: "this-or-that-web-app"
-          heroku_email: "furkan.kalkan@student.htw-berlin.de"
