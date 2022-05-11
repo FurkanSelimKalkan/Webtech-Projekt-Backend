@@ -33,4 +33,8 @@ jobs:
 
       # Runs a set of commands using the runners shell
     - name: Run Backend Tests
+      env:
+        JDBC_DATABASE_URL: ${{ secrets.JDBC_DATABASE_URL }}
+        JDBC_DATABASE_USERNAME: ${{ secrets.JDBC_DATABASE_USERNAME }}
+        JDCB_DATABASE_PASSWORD: ${{ secrets.JDBC_DATABASE_PASSWORD }}
       run: ./gradlew test
