@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VotingTest {
     @Test
-    void testToString(){
+    void testToStrings(){
 
     assertEquals(1, 2);
 
