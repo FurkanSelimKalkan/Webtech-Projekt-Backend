@@ -8,7 +8,7 @@ public class VotingTest {
     @Test
     void testToString(){
 
-    assertEquals(1, 2)
+    assertEquals(1, 2);
 
     }
 }
