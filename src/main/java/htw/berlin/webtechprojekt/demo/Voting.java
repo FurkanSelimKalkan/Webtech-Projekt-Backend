@@ -15,7 +15,7 @@ public class Voting {
     private String image2;
     private int votingsImage1;
     private int votingsImage2;
-
+//Voting Class
     public Voting (){}
 
     public Voting(String title, String image1, String image2, int votingsImage1, int votingsImage2) {
