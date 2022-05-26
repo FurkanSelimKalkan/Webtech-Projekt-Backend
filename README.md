@@ -5,7 +5,7 @@ Entscheidungshilfe für Outfits und Klamotteneinkäufe über Voting-Prinzip
 - lass dir bei deiner Entscheidungswahl helfen, indem du deine Optionen postest
 - hilf anderen über ein Votingprinzip bei ihren Entscheidungen
 
-
+BESCHREIBUNG HINZUFÜGEN
 
 ### Zeitraum
 
