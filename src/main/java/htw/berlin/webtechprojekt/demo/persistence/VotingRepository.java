@@ -12,5 +12,4 @@ import java.util.List;
 public interface VotingRepository extends JpaRepository<VotingEntity, Long> {
 
     List<VotingEntity> findAllByTitle(String title);
-
 }
