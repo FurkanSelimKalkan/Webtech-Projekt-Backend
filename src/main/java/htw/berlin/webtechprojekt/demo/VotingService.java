@@ -10,6 +10,10 @@ public class VotingService {
     @Autowired
     VotingRepository repo;
 
+    public VotingService(VotingRepository repo) {
+        this.repo = repo;
+    }
+
     public Voting save(Voting voting){
         return repo.save(voting);
     }
