@@ -1,5 +1,7 @@
 package htw.berlin.webtechprojekt.demo;
 
+import htw.berlin.webtechprojekt.demo.persistence.VotingRepository;
+import htw.berlin.webtechprojekt.demo.service.VotingService;
 import htw.berlin.webtechprojekt.demo.web.Voting;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,17 +12,15 @@ import java.util.List;
 @RestController
 public class VotingRestController {
 
-    private List<Voting> votings;
+    private final VotingService votingService;
 
-
-    public VotingRestController(){
-        votings = new ArrayList<>();
-        votings.add(new Voting(1l, "Title1", "image1", "image2", 5,20));
+    public VotingRestController(VotingService votingService) {
+        this.votingService = votingService;
     }
 
     @GetMapping(path = "/api/v1/votings")
     public ResponseEntity<List<Voting>> fetchVotings(){
-        return ResponseEntity.ok(votings);
+        return ResponseEntity.ok(votingService.findAll());
     }
 
 /*    @PostMapping("/votings")
