@@ -4,24 +4,9 @@ import htw.berlin.webtechprojekt.demo.web.api.Voting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
 public class VotingService {
-    @Autowired
-    VotingRepository repo;
 
-    public VotingService(VotingRepository repo) {
-        this.repo = repo;
-    }
+/*    public Voting create(VotingCreateRequest request){
 
-    public Voting save(Voting voting){
-        return repo.save(voting);
-    }
-
-    public Voting get(Long id){
-        return repo.findById(id).orElseThrow(() -> new RuntimeException());
-    }
-
-    public Voting create(VotingCreateRequest request){
-
-    }
+    } */
 }

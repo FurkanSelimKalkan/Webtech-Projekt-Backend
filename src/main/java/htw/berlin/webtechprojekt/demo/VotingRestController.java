@@ -13,12 +13,10 @@ public class VotingRestController {
 
     private List<Voting> votings;
 
-    @Autowired
-    VotingService service;
 
     public VotingRestController(){
         votings = new ArrayList<>();
-        votings.add(new Voting(1, "Title1", "image1", "image2", 5,20));
+        votings.add(new Voting(1l, "Title1", "image1", "image2", 5,20));
     }
 
     @GetMapping(path = "/api/v1/votings")
@@ -26,8 +24,8 @@ public class VotingRestController {
         return ResponseEntity.ok(votings);
     }
 
-    @PostMapping("/votings")
+/*    @PostMapping("/votings")
     public ResponseEntity<Void> createVoting(@RequestBody VotingCreateRequest request){
         //....
-    }
+    } */
 }
