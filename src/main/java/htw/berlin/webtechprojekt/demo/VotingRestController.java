@@ -1,12 +1,11 @@
 package htw.berlin.webtechprojekt.demo;
 
-import htw.berlin.webtechprojekt.demo.persistence.VotingRepository;
 import htw.berlin.webtechprojekt.demo.service.VotingService;
 import htw.berlin.webtechprojekt.demo.web.Voting;
+import htw.berlin.webtechprojekt.demo.web.api.VotingCreateRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,8 +22,8 @@ public class VotingRestController {
         return ResponseEntity.ok(votingService.findAll());
     }
 
-/*    @PostMapping("/votings")
+    @PostMapping(path = "/api/v1/votings")
     public ResponseEntity<Void> createVoting(@RequestBody VotingCreateRequest request){
         //....
-    } */
+    }
 }

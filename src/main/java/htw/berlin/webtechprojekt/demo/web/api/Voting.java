@@ -1,18 +1,32 @@
-package htw.berlin.webtechprojekt.demo;
+package htw.berlin.webtechprojekt.demo.web.api;
 
-public class VotingCreateRequest {
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GenerationType;
+import javax.persistence.GeneratedValue;
+
+public class Voting {
+
+    private Long id;
     private String title;
     private String image1;
     private String image2;
     private int votingsImage1;
     private int votingsImage2;
 
-    public VotingCreateRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2) {
+
+    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2) {
+        this.id = id;
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
         this.votingsImage1 = votingsImage1;
         this.votingsImage2 = votingsImage2;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -55,3 +69,4 @@ public class VotingCreateRequest {
         this.votingsImage2 = votingsImage2;
     }
 }
+

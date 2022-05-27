@@ -27,8 +27,7 @@ public class VotingEntity {
 
     protected VotingEntity(){}
 
-    public VotingEntity(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2) {
-        this.id = id;
+    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;

@@ -1,33 +1,18 @@
-package htw.berlin.webtechprojekt.demo.web;
+package htw.berlin.webtechprojekt.demo.web.api;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GenerationType;
-import javax.persistence.GeneratedValue;
-
-//@Entity
-public class Voting {
-//@Id
- //   @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class VotingCreateRequest {
     private String title;
     private String image1;
     private String image2;
     private int votingsImage1;
     private int votingsImage2;
 
-
-    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2) {
-        this.id = id;
+    public VotingCreateRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
         this.votingsImage1 = votingsImage1;
         this.votingsImage2 = votingsImage2;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getTitle() {
@@ -70,3 +55,4 @@ public class Voting {
         this.votingsImage2 = votingsImage2;
     }
 }
+
