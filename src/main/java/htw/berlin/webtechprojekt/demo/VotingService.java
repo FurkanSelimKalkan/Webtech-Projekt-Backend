@@ -21,4 +21,8 @@ public class VotingService {
     public Voting get(Long id){
         return repo.findById(id).orElseThrow(() -> new RuntimeException());
     }
+
+    public Voting create(VotingCreateRequest request){
+
+    }
 }
