@@ -1,13 +1,13 @@
 package htw.berlin.webtechprojekt.demo.web.api;
 
-public class VotingCreateRequest {
+public class VotingManipulationRequest {
     private String title;
     private String image1;
     private String image2;
     private int votingsImage1;
     private int votingsImage2;
 
-    public VotingCreateRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2) {
+    public VotingManipulationRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;

@@ -3,7 +3,7 @@ package htw.berlin.webtechprojekt.demo.service;
 import htw.berlin.webtechprojekt.demo.persistence.VotingEntity;
 import htw.berlin.webtechprojekt.demo.persistence.VotingRepository;
 import htw.berlin.webtechprojekt.demo.web.api.Voting;
-import htw.berlin.webtechprojekt.demo.web.api.VotingCreateRequest;
+import htw.berlin.webtechprojekt.demo.web.api.VotingManipulationRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,10 +30,36 @@ public class VotingService {
         return votingEntity.map(this::transformEntity).orElse(null);
     }
 
-    public Voting create(VotingCreateRequest request){
+    public Voting create(VotingManipulationRequest request){
         var votingEntity = new VotingEntity(request.getTitle(), request.getImage1(), request.getImage2(), request.getVotingsImage1(), request.getVotingsImage2());
        votingEntity =  votingRepository.save(votingEntity);
        return transformEntity(votingEntity);
+    }
+
+    public Voting update(Long id, VotingManipulationRequest request) {
+        var votingEntityOptional = votingRepository.findById(id);
+        if (votingEntityOptional.isEmpty()) {
+            return null;
+        }
+
+        var votingEntity = votingEntityOptional.get();
+        votingEntity.setTitle(request.getTitle());
+        votingEntity.setImage1(request.getImage1());
+        votingEntity.setImage2(request.getImage2());
+        votingEntity.setVotingsImage1(request.getVotingsImage1());
+        votingEntity.setVotingsImage2(request.getVotingsImage2());
+        votingEntity = votingRepository.save(votingEntity);
+
+        return transformEntity(votingEntity);
+    }
+
+    public boolean deleteById(Long id) {
+        if (!votingRepository.existsById(id)) {
+            return false;
+        }
+
+        votingRepository.deleteById(id);
+        return true;
     }
 
     private Voting transformEntity(VotingEntity votingEntity){
