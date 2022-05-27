@@ -1,24 +1,24 @@
-package htw.berlin.webtechprojekt.demo;
+package htw.berlin.webtechprojekt.demo.web.api;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GenerationType;
 import javax.persistence.GeneratedValue;
 
-@Entity
+//@Entity
 public class Voting {
-@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//@Id
+ //   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String image1;
     private String image2;
     private int votingsImage1;
     private int votingsImage2;
-//Voting Class
-    public Voting (){}
 
-    public Voting(String title, String image1, String image2, int votingsImage1, int votingsImage2) {
+
+    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2) {
+        this.id = id;
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
