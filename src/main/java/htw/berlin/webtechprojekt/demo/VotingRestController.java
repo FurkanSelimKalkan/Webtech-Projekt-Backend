@@ -1,7 +1,6 @@
 package htw.berlin.webtechprojekt.demo;
 
-import htw.berlin.webtechprojekt.demo.web.api.Voting;
-import org.springframework.beans.factory.annotation.Autowired;
+import htw.berlin.webtechprojekt.demo.web.Voting;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

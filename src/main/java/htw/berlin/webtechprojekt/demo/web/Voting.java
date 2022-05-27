@@ -1,4 +1,4 @@
-package htw.berlin.webtechprojekt.demo.web.api;
+package htw.berlin.webtechprojekt.demo.web;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
