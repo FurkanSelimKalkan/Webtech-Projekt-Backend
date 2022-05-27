@@ -25,6 +25,11 @@ public class VotingService {
                 .collect(Collectors.toList());
     }
 
+    public Voting findById(Long id){
+        var votingEntity = votingRepository.findById(id);
+        return votingEntity.map(this::transformEntity).orElse(null);
+    }
+
     public Voting create(VotingCreateRequest request){
         var votingEntity = new VotingEntity(request.getTitle(), request.getImage1(), request.getImage2(), request.getVotingsImage1(), request.getVotingsImage2());
        votingEntity =  votingRepository.save(votingEntity);
