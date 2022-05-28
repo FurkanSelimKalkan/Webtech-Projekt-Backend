@@ -15,6 +15,8 @@ public class VotingManipulationRequest {
         this.votingsImage2 = votingsImage2;
     }
 
+    public VotingManipulationRequest(){}
+
     public String getTitle() {
         return title;
     }
