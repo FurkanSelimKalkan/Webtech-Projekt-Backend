@@ -12,8 +12,8 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**")
                 .allowedMethods("*")
                 .allowedOrigins(
-                        "http://localhost:3000",
-                        "https://this-or-that-webapp-frontend.herokuapp.com/",
+                        "https://localhost:3000",
+                        "https://this-or-that-webapp-frontend.herokuapp.com/"
                 );
     }
 }
