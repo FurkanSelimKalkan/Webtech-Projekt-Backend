@@ -17,26 +17,26 @@ dependencies {
 	// Exclude the tomcat-jdbc since it's used as default for connection pooling
 	// This can also be achieved by setting the spring.datasource.type to HikariCP
 	// datasource see application.properties below
-	compile('org.springframework.boot:spring-boot-starter-data-jpa') {
+	compile('org.springframework.boot:spring-boot-starter-data-jpa:2.6.7') {
 		exclude group: 'org.apache.tomcat', module: 'tomcat-jdbc'
 	}
 
 
 	// Download HikariCP but, exclude hibernate-core to avoid version conflicts
-	compile('com.zaxxer:HikariCP:2.5.1') {
+	compile('com.zaxxer:HikariCP:5.0.1') {
 		exclude group: 'org.hibernate', module: 'hibernate-core'
 	}
 
 	// Need this in order to get the HikariCPConnectionProvider
-	compile('org.hibernate:hibernate-hikaricp:5.2.11.Final') {
+	compile('org.hibernate:hibernate-hikaricp:6.0.1.Final') {
 		exclude group: 'com.zaxxer', module: 'HikariCP'
 		exclude group: 'org.hibernate', module: 'hibernate-core'
 	}
 
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.7'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.7'
 	implementation 'org.postgresql:postgresql:42.3.5'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
