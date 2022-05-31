@@ -6,6 +6,7 @@ import htw.berlin.webtechprojekt.demo.web.api.VotingManipulationRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -31,7 +32,7 @@ public class VotingRestController {
     }
 
     @PostMapping(path = "/api/v1/votings")
-    public ResponseEntity<Void> createVoting(@RequestBody VotingManipulationRequest request) throws URISyntaxException {
+    public ResponseEntity<Void> createVoting(@Valid @RequestBody VotingManipulationRequest request) throws URISyntaxException {
         var voting = votingService.create(request);
         URI uri = new URI("/api/v1/votings/" + voting.getId());
         return ResponseEntity.created(uri).build();

@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class VotingEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)                  //DB erstellt einen eigenen Numerischen Wert für den Primary Key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 

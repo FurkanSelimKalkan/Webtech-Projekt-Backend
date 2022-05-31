@@ -1,9 +1,18 @@
 package htw.berlin.webtechprojekt.demo.web.api;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class VotingManipulationRequest {
+
+    @NotBlank(message = "Title Field cannot be empty")
     private String title;
+    @NotBlank(message = "Image Field cannot be empty")
     private String image1;
+    @NotBlank(message = "Image Field cannot be empty")
     private String image2;
+
+
     private int votingsImage1;
     private int votingsImage2;
 
