@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface VotingRepository extends JpaRepository<VotingEntity, Long> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-    List<VotingEntity> findAllByTitle(String title);
+    List<UserEntity> findAllByUsername(String username);
 }

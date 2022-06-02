@@ -1,5 +1,6 @@
 package htw.berlin.webtechprojekt.demo.service;
 
+import htw.berlin.webtechprojekt.demo.persistence.UserRepository;
 import htw.berlin.webtechprojekt.demo.persistence.VotingEntity;
 import htw.berlin.webtechprojekt.demo.persistence.VotingRepository;
 import htw.berlin.webtechprojekt.demo.web.api.Voting;
@@ -13,9 +14,13 @@ import java.util.stream.Collectors;
 public class VotingService {
 
     private final VotingRepository votingRepository;
+    private final UserRepository userRepository;
+    private final UserTransformer userTransformer;
 
-    public VotingService(VotingRepository votingRepository){
+    public VotingService(VotingRepository votingRepository, UserRepository userRepository, UserTransformer userTransformer) {
         this.votingRepository = votingRepository;
+        this.userRepository = userRepository;
+        this.userTransformer = userTransformer;
     }
 
     public List<Voting> findAll(){
@@ -31,7 +36,8 @@ public class VotingService {
     }
 
     public Voting create(VotingManipulationRequest request){
-        var votingEntity = new VotingEntity(request.getTitle(), request.getImage1(), request.getImage2(), request.getVotingsImage1(), request.getVotingsImage2());
+        var owner = userRepository.findById(request.getOwnerId()).orElseThrow();
+        var votingEntity = new VotingEntity(request.getTitle(), request.getImage1(), request.getImage2(), request.getVotingsImage1(), request.getVotingsImage2(), owner);
        votingEntity =  votingRepository.save(votingEntity);
        return transformEntity(votingEntity);
     }
@@ -69,7 +75,8 @@ public class VotingService {
                 votingEntity.getImage1(),
                 votingEntity.getImage2(),
                 votingEntity.getVotingsImage1(),
-                votingEntity.getVotingsImage2()
+                votingEntity.getVotingsImage2(),
+                userTransformer.transformEntity(votingEntity.getOwner())
         );
     }
 }

@@ -25,14 +25,20 @@ public class VotingEntity {
     @Column(name = "votings_image_2")
     private int votingsImage2;
 
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    private UserEntity owner;
+
+
     protected VotingEntity(){}
 
-    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2) {
+    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2, UserEntity owner) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
         this.votingsImage1 = votingsImage1;
         this.votingsImage2 = votingsImage2;
+        this.owner = owner;
     }
 
     public Long getId() {
@@ -78,5 +84,13 @@ public class VotingEntity {
 
     public void setVotingsImage2(int votingsImage2) {
         this.votingsImage2 = votingsImage2;
+    }
+
+    public UserEntity getOwner() {
+        return owner;
+    }
+
+    public void setOwner(UserEntity owner) {
+        this.owner = owner;
     }
 }

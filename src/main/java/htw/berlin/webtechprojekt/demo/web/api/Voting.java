@@ -1,11 +1,5 @@
 package htw.berlin.webtechprojekt.demo.web.api;
 
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GenerationType;
-import javax.persistence.GeneratedValue;
-
 public class Voting {
 
     private Long id;
@@ -14,15 +8,17 @@ public class Voting {
     private String image2;
     private int votingsImage1;
     private int votingsImage2;
+    private User user;
 
 
-    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2) {
+    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2, User user) {
         this.id = id;
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
         this.votingsImage1 = votingsImage1;
         this.votingsImage2 = votingsImage2;
+        this.user = user;
     }
 
     public Long getId() {
@@ -67,6 +63,14 @@ public class Voting {
 
     public void setVotingsImage2(int votingsImage2) {
         this.votingsImage2 = votingsImage2;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
 
