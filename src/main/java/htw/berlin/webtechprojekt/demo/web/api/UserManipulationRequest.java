@@ -1,9 +1,16 @@
 package htw.berlin.webtechprojekt.demo.web.api;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 public class UserManipulationRequest {
 
+    @NotBlank
     private String username;
+    @NotBlank
+    @Email
     private String email;
+    @NotBlank
     private String password;
 
     public UserManipulationRequest(String username, String email, String password) {
