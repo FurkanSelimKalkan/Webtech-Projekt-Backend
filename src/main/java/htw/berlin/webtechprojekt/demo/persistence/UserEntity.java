@@ -70,4 +70,5 @@ public class UserEntity {
     public void setVotings(List<VotingEntity> votings) {
         this.votings = votings;
     }
+    //Hallo
 }
