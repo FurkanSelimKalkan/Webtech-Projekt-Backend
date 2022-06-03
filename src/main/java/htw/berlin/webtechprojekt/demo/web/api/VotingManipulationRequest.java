@@ -5,17 +5,15 @@ import javax.validation.constraints.Size;
 
 public class VotingManipulationRequest {
 
-    //@NotBlank(message = "Title Field cannot be empty")
+    @NotBlank(message = "Title Field cannot be empty")
     private String title;
-    //@NotBlank(message = "Image Field cannot be empty")
+    @NotBlank(message = "Image Field cannot be empty")
     private String image1;
-    //@NotBlank(message = "Image Field cannot be empty")
+    @NotBlank(message = "Image Field cannot be empty")
     private String image2;
 
     private int votingsImage1;
     private int votingsImage2;
-
-    //@NotBlank(message = "Voting isnt connected with User")
     private Long ownerId;
 
     public VotingManipulationRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2, Long ownerId) {
