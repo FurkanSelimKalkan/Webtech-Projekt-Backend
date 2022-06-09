@@ -1,4 +1,4 @@
-![](src/main/java/htw/berlin/webtechprojekt/demo/assets/logo.png)
+![](https://this-or-that-webapp-frontend.herokuapp.com/) 
 Klicke [hier](https://this-or-that-webapp-frontend.herokuapp.com/) um auf unsere Website zu kommen
 
 # Webtech-Projekt
