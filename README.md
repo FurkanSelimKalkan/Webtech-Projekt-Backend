@@ -1,4 +1,4 @@
-![](src/main/java/htw/berlin/webtechprojekt/demo/assets/logo.png)
+Click [here](src/main/java/htw/berlin/webtechprojekt/demo/assets/logo.png) to got to our Website
 # Webtech-Projekt
 
 Entscheidungshilfe für Outfits und Klamotteneinkäufe über Voting-Prinzip
