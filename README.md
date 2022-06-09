@@ -1,4 +1,4 @@
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/HTW_Berlin_logo.svg/1200px-HTW_Berlin_logo.svg.png)
+![](src/main/java/htw/berlin/webtechprojekt/demo/assets/logo.png)
 # Webtech-Projekt
 
 Entscheidungshilfe für Outfits und Klamotteneinkäufe über Voting-Prinzip
