@@ -1,5 +1,5 @@
 ![](src/main/java/htw/berlin/webtechprojekt/demo/assets/logo.png)
-Click [here](https://this-or-that-webapp-frontend.herokuapp.com/) to got to our Website
+Klicke [hier](https://this-or-that-webapp-frontend.herokuapp.com/) um auf unsere Website zu kommen
 
 # Webtech-Projekt
 
