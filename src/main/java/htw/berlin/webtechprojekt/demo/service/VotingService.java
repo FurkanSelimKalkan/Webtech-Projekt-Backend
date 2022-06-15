@@ -17,11 +17,13 @@ public class VotingService {
     private final UserRepository userRepository;
     private final UserTransformer userTransformer;
 
+
     public VotingService(VotingRepository votingRepository, UserRepository userRepository, UserTransformer userTransformer) {
         this.votingRepository = votingRepository;
         this.userRepository = userRepository;
         this.userTransformer = userTransformer;
     }
+
 
     public List<Voting> findAll(){
         List<VotingEntity> votings = votingRepository.findAll();
