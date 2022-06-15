@@ -3,7 +3,6 @@ package service;
 import htw.berlin.webtechprojekt.demo.persistence.UserEntity;
 import htw.berlin.webtechprojekt.demo.persistence.VotingEntity;
 import htw.berlin.webtechprojekt.demo.service.UserTransformer;
-import htw.berlin.webtechprojekt.demo.service.VotingService;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
