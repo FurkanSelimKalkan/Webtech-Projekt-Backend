@@ -1,11 +1,14 @@
 package htw.berlin.webtechprojekt.demo.web.api;
 
 import htw.berlin.webtechprojekt.demo.persistence.VotingEntity;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class User {
+public class User implements UserDetails {
 
     private long id;
     private String username;
@@ -33,6 +36,7 @@ public class User {
         return username;
     }
 
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -59,5 +63,32 @@ public class User {
 
     public void setVotingIds(List<Long> votingIds) {
         this.votingIds = votingIds;
+    }
+
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
     }
 }
