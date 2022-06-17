@@ -8,10 +8,10 @@ public class Voting {
     private String image2;
     private int votingsImage1;
     private int votingsImage2;
-    private User user;
+    private String user;
 
 
-    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2, User user) {
+    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2, String user) {
         this.id = id;
         this.title = title;
         this.image1 = image1;
@@ -65,11 +65,11 @@ public class Voting {
         this.votingsImage2 = votingsImage2;
     }
 
-    public User getUser() {
+    public String getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(String user) {
         this.user = user;
     }
 }

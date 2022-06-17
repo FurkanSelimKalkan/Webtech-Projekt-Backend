@@ -25,14 +25,13 @@ public class VotingEntity {
     @Column(name = "votings_image_2")
     private int votingsImage2;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
-    private UserEntity owner;
+    @Column(name = "owner")
+    private String owner;
 
 
     protected VotingEntity(){}
 
-    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2, UserEntity owner) {
+    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2, String owner) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
@@ -86,11 +85,11 @@ public class VotingEntity {
         this.votingsImage2 = votingsImage2;
     }
 
-    public UserEntity getOwner() {
+    public String getOwner() {
         return owner;
     }
 
-    public void setOwner(UserEntity owner) {
+    public void setOwner(String owner) {
         this.owner = owner;
     }
 }

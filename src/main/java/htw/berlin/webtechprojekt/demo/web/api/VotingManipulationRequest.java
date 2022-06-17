@@ -14,9 +14,9 @@ public class VotingManipulationRequest {
 
     private int votingsImage1;
     private int votingsImage2;
-    private Long ownerId;
+    private String ownerId;
 
-    public VotingManipulationRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2, Long ownerId) {
+    public VotingManipulationRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2, String ownerId) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
@@ -67,11 +67,11 @@ public class VotingManipulationRequest {
         this.votingsImage2 = votingsImage2;
     }
 
-    public Long getOwnerId() {
+    public String getOwnerId() {
         return ownerId;
     }
 
-    public void setOwnerId(Long ownerId) {
+    public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
     }
 }

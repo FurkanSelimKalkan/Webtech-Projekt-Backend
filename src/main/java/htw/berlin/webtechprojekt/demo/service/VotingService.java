@@ -14,34 +14,31 @@ import java.util.stream.Collectors;
 public class VotingService {
 
     private final VotingRepository votingRepository;
-    private final UserRepository userRepository;
-    private final UserTransformer userTransformer;
+
 
 
     public VotingService(VotingRepository votingRepository, UserRepository userRepository, UserTransformer userTransformer) {
         this.votingRepository = votingRepository;
-        this.userRepository = userRepository;
-        this.userTransformer = userTransformer;
+
     }
 
 
-    public List<Voting> findAll(){
+    public List<Voting> findAll() {
         List<VotingEntity> votings = votingRepository.findAll();
         return votings.stream()
                 .map(this::transformEntity)
                 .collect(Collectors.toList());
     }
 
-    public Voting findById(Long id){
+    public Voting findById(Long id) {
         var votingEntity = votingRepository.findById(id);
         return votingEntity.map(this::transformEntity).orElse(null);
     }
 
-    public Voting create(VotingManipulationRequest request){
-        var owner = userRepository.findById(request.getOwnerId()).orElseThrow();
-        var votingEntity = new VotingEntity(request.getTitle(), request.getImage1(), request.getImage2(), request.getVotingsImage1(), request.getVotingsImage2(), owner);
-       votingEntity =  votingRepository.save(votingEntity);
-       return transformEntity(votingEntity);
+    public Voting create(VotingManipulationRequest request) {
+        var votingEntity = new VotingEntity(request.getTitle(), request.getImage1(), request.getImage2(), request.getVotingsImage1(), request.getVotingsImage2(), request.getOwnerId());
+        votingEntity = votingRepository.save(votingEntity);
+        return transformEntity(votingEntity);
     }
 
     public Voting update(Long id, VotingManipulationRequest request) {
@@ -70,7 +67,7 @@ public class VotingService {
         return true;
     }
 
-    private Voting transformEntity(VotingEntity votingEntity){
+    private Voting transformEntity(VotingEntity votingEntity) {
         return new Voting(
                 votingEntity.getId(),
                 votingEntity.getTitle(),
@@ -78,7 +75,7 @@ public class VotingService {
                 votingEntity.getImage2(),
                 votingEntity.getVotingsImage1(),
                 votingEntity.getVotingsImage2(),
-                userTransformer.transformEntity(votingEntity.getOwner())
+                votingEntity.getOwner()
         );
     }
 }
