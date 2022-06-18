@@ -28,16 +28,21 @@ public class VotingEntity {
     @Column(name = "owner")
     private String owner;
 
+    @Column(name = "username")
+    private String userName;
 
-    protected VotingEntity(){}
 
-    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2, String owner) {
+    protected VotingEntity() {
+    }
+
+    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2, String owner, String userName) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
         this.votingsImage1 = votingsImage1;
         this.votingsImage2 = votingsImage2;
         this.owner = owner;
+        this.userName = userName;
     }
 
     public Long getId() {
@@ -91,5 +96,13 @@ public class VotingEntity {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

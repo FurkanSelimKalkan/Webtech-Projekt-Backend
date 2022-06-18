@@ -9,9 +9,10 @@ public class Voting {
     private int votingsImage1;
     private int votingsImage2;
     private String user;
+    private String userName;
 
 
-    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2, String user) {
+    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2, String user, String userName) {
         this.id = id;
         this.title = title;
         this.image1 = image1;
@@ -19,6 +20,7 @@ public class Voting {
         this.votingsImage1 = votingsImage1;
         this.votingsImage2 = votingsImage2;
         this.user = user;
+        this.userName = userName;
     }
 
     public Long getId() {
@@ -71,6 +73,14 @@ public class Voting {
 
     public void setUser(String user) {
         this.user = user;
+    }
+
+    public String UserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
 

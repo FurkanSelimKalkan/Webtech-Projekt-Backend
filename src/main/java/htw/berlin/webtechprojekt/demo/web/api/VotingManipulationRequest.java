@@ -15,14 +15,16 @@ public class VotingManipulationRequest {
     private int votingsImage1;
     private int votingsImage2;
     private String ownerId;
+    private String userName;
 
-    public VotingManipulationRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2, String ownerId) {
+    public VotingManipulationRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2, String ownerId, String userName) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
         this.votingsImage1 = votingsImage1;
         this.votingsImage2 = votingsImage2;
         this.ownerId = ownerId;
+        this.userName = userName;
     }
 
     public VotingManipulationRequest(){}
@@ -73,6 +75,12 @@ public class VotingManipulationRequest {
 
     public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
+    }
+
+    public String getUserName() { return userName;}
+
+    public void setUserName(String userName){
+        this.userName = userName;
     }
 }
 

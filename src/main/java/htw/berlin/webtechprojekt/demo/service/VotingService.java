@@ -36,7 +36,7 @@ public class VotingService {
     }
 
     public Voting create(VotingManipulationRequest request) {
-        var votingEntity = new VotingEntity(request.getTitle(), request.getImage1(), request.getImage2(), request.getVotingsImage1(), request.getVotingsImage2(), request.getOwnerId());
+        var votingEntity = new VotingEntity(request.getTitle(), request.getImage1(), request.getImage2(), request.getVotingsImage1(), request.getVotingsImage2(), request.getOwnerId(), request.getUserName());
         votingEntity = votingRepository.save(votingEntity);
         return transformEntity(votingEntity);
     }
@@ -75,7 +75,8 @@ public class VotingService {
                 votingEntity.getImage2(),
                 votingEntity.getVotingsImage1(),
                 votingEntity.getVotingsImage2(),
-                votingEntity.getOwner()
+                votingEntity.getOwner(),
+                votingEntity.getUserName()
         );
     }
 }
