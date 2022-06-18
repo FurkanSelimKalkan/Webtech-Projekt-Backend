@@ -28,7 +28,7 @@ public class VotingEntity {
     @Column(name = "owner")
     private String owner;
 
-    @Column(name = "username")
+    @Column(name = "user_name")
     private String userName;
 
 

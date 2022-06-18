@@ -75,7 +75,7 @@ public class Voting {
         this.user = user;
     }
 
-    public String UserName() {
+    public String getUserName() {
         return userName;
     }
 
