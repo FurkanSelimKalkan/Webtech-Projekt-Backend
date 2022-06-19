@@ -68,7 +68,7 @@ public class VotingService {
         }
 
         var votingEntity = votingEntityOptional.get();
-        ArrayList<String> actualVotes = votingEntity.getVotedUsers();
+        List<String> actualVotes = votingEntity.getVotedUsers();
 
         for (String i : actualVotes) {
             if (i == request) {

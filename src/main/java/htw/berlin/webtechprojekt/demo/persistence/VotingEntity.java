@@ -2,6 +2,7 @@ package htw.berlin.webtechprojekt.demo.persistence;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "votings")
 public class VotingEntity {
@@ -32,15 +33,15 @@ public class VotingEntity {
     @Column(name = "user_name")
     private String userName;
 
-    @Transient
-    @Column(name = "voted_users")
-    private ArrayList<String> votedUsers = new ArrayList<>();
+    @ElementCollection
+    //@Column(name = "voted_users")
+    private List<String> votedUsers = new ArrayList<>();
 
 
     protected VotingEntity() {
     }
 
-    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2, String owner, String userName,ArrayList<String> votedUsers) {
+    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2, String owner, String userName,List<String> votedUsers) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
@@ -112,11 +113,11 @@ public class VotingEntity {
         this.userName = userName;
     }
 
-    public ArrayList<String> getVotedUsers() {
+    public List<String> getVotedUsers() {
         return votedUsers;
     }
 
-    public void setVotedUsers(ArrayList<String> votedUsers) {
+    public void setVotedUsers(List<String> votedUsers) {
         this.votedUsers = votedUsers;
     }
 }

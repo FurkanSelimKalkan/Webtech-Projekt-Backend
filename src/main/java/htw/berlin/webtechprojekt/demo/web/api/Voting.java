@@ -1,6 +1,7 @@
 package htw.berlin.webtechprojekt.demo.web.api;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Voting {
 
@@ -12,10 +13,10 @@ public class Voting {
     private int votingsImage2;
     private String user;
     private String userName;
-    private ArrayList<String> votedUsers = new ArrayList<>();
+    private List<String> votedUsers = new ArrayList<>();
 
 
-    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2, String user, String userName, ArrayList<String> votedUsers) {
+    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2, String user, String userName, List<String> votedUsers) {
         this.id = id;
         this.title = title;
         this.image1 = image1;
@@ -87,11 +88,11 @@ public class Voting {
         this.userName = userName;
     }
 
-    public ArrayList<String> getVotedUsers() {
+    public List<String> getVotedUsers() {
         return votedUsers;
     }
 
-    public void setVotedUsers(ArrayList<String> votedUsers) {
+    public void setVotedUsers(List<String> votedUsers) {
         this.votedUsers = votedUsers;
     }
 }

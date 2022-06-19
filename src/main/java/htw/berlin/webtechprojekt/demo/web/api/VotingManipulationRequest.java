@@ -3,6 +3,7 @@ package htw.berlin.webtechprojekt.demo.web.api;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
+import java.util.List;
 
 public class VotingManipulationRequest {
 
@@ -17,10 +18,10 @@ public class VotingManipulationRequest {
     private int votingsImage2;
     private String ownerId;
     private String userName;
-    private ArrayList<String> votedUsers = new ArrayList<>();
+    private List<String> votedUsers = new ArrayList<>();
 
 
-    public VotingManipulationRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2, String ownerId, String userName, ArrayList<String> votedUsers) {
+    public VotingManipulationRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2, String ownerId, String userName, List<String> votedUsers) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
@@ -89,11 +90,11 @@ public class VotingManipulationRequest {
         this.userName = userName;
     }
 
-    public ArrayList<String> getVotedUsers() {
+    public List<String> getVotedUsers() {
         return votedUsers;
     }
 
-    public void setVotedUsers(ArrayList<String> votedUsers) {
+    public void setVotedUsers(List<String> votedUsers) {
         this.votedUsers = votedUsers;
     }
 }
