@@ -3,7 +3,6 @@ package htw.berlin.webtechprojekt.demo;
 import htw.berlin.webtechprojekt.demo.service.VotingService;
 import htw.berlin.webtechprojekt.demo.web.api.Voting;
 import htw.berlin.webtechprojekt.demo.web.api.VotingManipulationRequest;
-import htw.berlin.webtechprojekt.demo.web.api.VotingVotesManipulationRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

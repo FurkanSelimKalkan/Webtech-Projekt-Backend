@@ -4,7 +4,6 @@ import htw.berlin.webtechprojekt.demo.persistence.VotingEntity;
 import htw.berlin.webtechprojekt.demo.persistence.VotingRepository;
 import htw.berlin.webtechprojekt.demo.web.api.Voting;
 import htw.berlin.webtechprojekt.demo.web.api.VotingManipulationRequest;
-import htw.berlin.webtechprojekt.demo.web.api.VotingVotesManipulationRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -60,6 +59,7 @@ public class VotingService {
     }
 
     public Voting addUser(Long id, String request) {
+        System.out.println(request);
         boolean containsChecker = false;
 
         var votingEntityOptional = votingRepository.findById(id);
@@ -69,11 +69,6 @@ public class VotingService {
 
         var votingEntity = votingEntityOptional.get();
         List<String> actualVotes = votingEntity.getVotedUsers();
-/*        if (actualVotes.size() == 0) {
-            actualVotes.add(request);
-            votingEntity = votingRepository.save(votingEntity);
-            return transformEntity(votingEntity);
-        } */
 
         for (String i : actualVotes) {
             if (i == request) {
