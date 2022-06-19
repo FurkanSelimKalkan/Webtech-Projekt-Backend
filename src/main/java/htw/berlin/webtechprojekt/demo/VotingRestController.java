@@ -3,6 +3,7 @@ package htw.berlin.webtechprojekt.demo;
 import htw.berlin.webtechprojekt.demo.service.VotingService;
 import htw.berlin.webtechprojekt.demo.web.api.Voting;
 import htw.berlin.webtechprojekt.demo.web.api.VotingManipulationRequest;
+import htw.berlin.webtechprojekt.demo.web.api.VotingVotesManipulationRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,9 +39,15 @@ public class VotingRestController {
         return ResponseEntity.created(uri).build();
     }
 
-    @PutMapping(path = "/api/v1/votings/{id}")
+/*    @PutMapping(path = "/api/v1/votings/{id}")
     public ResponseEntity<Voting> updateVoting(@PathVariable Long id, @RequestBody VotingManipulationRequest request) {
         var voting = votingService.update(id, request);
+        return voting != null? ResponseEntity.ok(voting) : ResponseEntity.notFound().build();
+    } */
+
+    @PutMapping(path = "/api/v1/votings/{id}")
+    public ResponseEntity<Voting> updateVoting(@PathVariable Long id, @RequestBody String request) {
+        var voting = votingService.addUser(id, request);
         return voting != null? ResponseEntity.ok(voting) : ResponseEntity.notFound().build();
     }
 

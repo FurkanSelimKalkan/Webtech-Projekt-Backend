@@ -1,12 +1,13 @@
 package htw.berlin.webtechprojekt.demo.service;
 
-import htw.berlin.webtechprojekt.demo.persistence.UserRepository;
 import htw.berlin.webtechprojekt.demo.persistence.VotingEntity;
 import htw.berlin.webtechprojekt.demo.persistence.VotingRepository;
 import htw.berlin.webtechprojekt.demo.web.api.Voting;
 import htw.berlin.webtechprojekt.demo.web.api.VotingManipulationRequest;
+import htw.berlin.webtechprojekt.demo.web.api.VotingVotesManipulationRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,7 +18,7 @@ public class VotingService {
 
 
 
-    public VotingService(VotingRepository votingRepository, UserRepository userRepository, UserTransformer userTransformer) {
+    public VotingService(VotingRepository votingRepository) {
         this.votingRepository = votingRepository;
 
     }
@@ -36,7 +37,7 @@ public class VotingService {
     }
 
     public Voting create(VotingManipulationRequest request) {
-        var votingEntity = new VotingEntity(request.getTitle(), request.getImage1(), request.getImage2(), request.getVotingsImage1(), request.getVotingsImage2(), request.getOwnerId(), request.getUserName());
+        var votingEntity = new VotingEntity(request.getTitle(), request.getImage1(), request.getImage2(), request.getVotingsImage1(), request.getVotingsImage2(), request.getOwnerId(), request.getUserName(), request.getVotedUsers());
         votingEntity = votingRepository.save(votingEntity);
         return transformEntity(votingEntity);
     }
@@ -58,6 +59,36 @@ public class VotingService {
         return transformEntity(votingEntity);
     }
 
+    public Voting addUser(Long id, String request) {
+        boolean containsChecker = false;
+
+        var votingEntityOptional = votingRepository.findById(id);
+        if (votingEntityOptional.isEmpty()) {
+            return null;
+        }
+
+        var votingEntity = votingEntityOptional.get();
+        ArrayList<String> actualVotes = votingEntity.getVotedUsers();
+
+        for (String i : actualVotes) {
+            if (i == request) {
+                containsChecker = true;
+                break;
+            } else {
+                containsChecker = false;
+            }
+        }
+
+        if (containsChecker == true) {
+            votingEntity = votingRepository.save(votingEntity);
+            return transformEntity(votingEntity);
+        } else {
+            actualVotes.add(request);
+            votingEntity = votingRepository.save(votingEntity);
+            return transformEntity(votingEntity);
+        }
+    }
+
     public boolean deleteById(Long id) {
         if (!votingRepository.existsById(id)) {
             return false;
@@ -76,7 +107,9 @@ public class VotingService {
                 votingEntity.getVotingsImage1(),
                 votingEntity.getVotingsImage2(),
                 votingEntity.getOwner(),
-                votingEntity.getUserName()
+                votingEntity.getUserName(),
+                votingEntity.getVotedUsers()
+
         );
     }
 }

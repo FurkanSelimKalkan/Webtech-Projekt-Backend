@@ -1,6 +1,7 @@
 package htw.berlin.webtechprojekt.demo.persistence;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity(name = "votings")
 public class VotingEntity {
@@ -31,11 +32,15 @@ public class VotingEntity {
     @Column(name = "user_name")
     private String userName;
 
+    @Transient
+    @Column(name = "voted_users")
+    private ArrayList<String> votedUsers = new ArrayList<>();
+
 
     protected VotingEntity() {
     }
 
-    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2, String owner, String userName) {
+    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2, String owner, String userName,ArrayList<String> votedUsers) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
@@ -43,6 +48,7 @@ public class VotingEntity {
         this.votingsImage2 = votingsImage2;
         this.owner = owner;
         this.userName = userName;
+        this.votedUsers = votedUsers;
     }
 
     public Long getId() {
@@ -104,5 +110,13 @@ public class VotingEntity {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public ArrayList<String> getVotedUsers() {
+        return votedUsers;
+    }
+
+    public void setVotedUsers(ArrayList<String> votedUsers) {
+        this.votedUsers = votedUsers;
     }
 }

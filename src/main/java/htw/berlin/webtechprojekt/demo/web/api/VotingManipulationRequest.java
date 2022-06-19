@@ -2,6 +2,7 @@ package htw.berlin.webtechprojekt.demo.web.api;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 
 public class VotingManipulationRequest {
 
@@ -16,8 +17,10 @@ public class VotingManipulationRequest {
     private int votingsImage2;
     private String ownerId;
     private String userName;
+    private ArrayList<String> votedUsers = new ArrayList<>();
 
-    public VotingManipulationRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2, String ownerId, String userName) {
+
+    public VotingManipulationRequest(String title, String image1, String image2, int votingsImage1, int votingsImage2, String ownerId, String userName, ArrayList<String> votedUsers) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
@@ -25,6 +28,7 @@ public class VotingManipulationRequest {
         this.votingsImage2 = votingsImage2;
         this.ownerId = ownerId;
         this.userName = userName;
+        this.votedUsers = votedUsers;
     }
 
     public VotingManipulationRequest(){}
@@ -77,10 +81,20 @@ public class VotingManipulationRequest {
         this.ownerId = ownerId;
     }
 
-    public String getUserName() { return userName;}
+    public String getUserName() {
+        return userName;
+    }
 
-    public void setUserName(String userName){
+    public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public ArrayList<String> getVotedUsers() {
+        return votedUsers;
+    }
+
+    public void setVotedUsers(ArrayList<String> votedUsers) {
+        this.votedUsers = votedUsers;
     }
 }
 
