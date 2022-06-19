@@ -3,6 +3,7 @@ package htw.berlin.webtechprojekt.demo.service;
 import htw.berlin.webtechprojekt.demo.persistence.VotingEntity;
 import htw.berlin.webtechprojekt.demo.persistence.VotingRepository;
 import htw.berlin.webtechprojekt.demo.web.api.Voting;
+import htw.berlin.webtechprojekt.demo.web.api.VotingCountManipulationRequest;
 import htw.berlin.webtechprojekt.demo.web.api.VotingManipulationRequest;
 import org.springframework.stereotype.Service;
 
@@ -58,8 +59,10 @@ public class VotingService {
         return transformEntity(votingEntity);
     }
 
-    public Voting addUser(Long id, String request) {
-        System.out.println(request);
+    public Voting addUser(Long id, VotingCountManipulationRequest request) {
+        System.out.println("User ID: " +request.getVotingUser());
+        System.out.println("Votings1: " +request.getVotingsImage1());
+        System.out.println("Votings2: " +request.getVotingsImage2());
         boolean containsChecker = false;
 
         var votingEntityOptional = votingRepository.findById(id);
@@ -70,8 +73,9 @@ public class VotingService {
         var votingEntity = votingEntityOptional.get();
         List<String> actualVotes = votingEntity.getVotedUsers();
 
+
         for (String i : actualVotes) {
-            if (i == request) {
+            if (i.equals(request.getVotingUser())) {
                 containsChecker = true;
                 break;
             } else {
@@ -83,7 +87,7 @@ public class VotingService {
             votingEntity = votingRepository.save(votingEntity);
             return transformEntity(votingEntity);
         } else {
-            actualVotes.add(request);
+            actualVotes.add(request.getVotingUser());
             votingEntity.setVotedUsers(actualVotes);
             votingEntity = votingRepository.save(votingEntity);
             return transformEntity(votingEntity);
