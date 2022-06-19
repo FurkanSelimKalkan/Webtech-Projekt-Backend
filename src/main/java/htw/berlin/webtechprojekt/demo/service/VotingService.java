@@ -69,6 +69,11 @@ public class VotingService {
 
         var votingEntity = votingEntityOptional.get();
         List<String> actualVotes = votingEntity.getVotedUsers();
+/*        if (actualVotes.size() == 0) {
+            actualVotes.add(request);
+            votingEntity = votingRepository.save(votingEntity);
+            return transformEntity(votingEntity);
+        } */
 
         for (String i : actualVotes) {
             if (i == request) {
@@ -84,6 +89,7 @@ public class VotingService {
             return transformEntity(votingEntity);
         } else {
             actualVotes.add(request);
+            votingEntity.setVotedUsers(actualVotes);
             votingEntity = votingRepository.save(votingEntity);
             return transformEntity(votingEntity);
         }
