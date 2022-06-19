@@ -89,6 +89,8 @@ public class VotingService {
         } else {
             actualVotes.add(request.getVotingUser());
             votingEntity.setVotedUsers(actualVotes);
+            votingEntity.setVotingsImage1(request.getVotingsImage1());
+            votingEntity.setVotingsImage2(request.getVotingsImage2());
             votingEntity = votingRepository.save(votingEntity);
             return transformEntity(votingEntity);
         }
