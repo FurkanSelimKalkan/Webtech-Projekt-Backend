@@ -11,19 +11,19 @@ public class Voting {
     private String image2;
     private int votingsImage1;
     private int votingsImage2;
-    private String user;
+    private String ownerId;
     private String userName;
     private List<String> votedUsers = new ArrayList<>();
 
 
-    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2, String user, String userName, List<String> votedUsers) {
+    public Voting(Long id, String title, String image1, String image2, int votingsImage1, int votingsImage2, String ownerId, String userName, List<String> votedUsers) {
         this.id = id;
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;
         this.votingsImage1 = votingsImage1;
         this.votingsImage2 = votingsImage2;
-        this.user = user;
+        this.ownerId = ownerId;
         this.userName = userName;
         this.votedUsers = votedUsers;
     }
@@ -72,12 +72,12 @@ public class Voting {
         this.votingsImage2 = votingsImage2;
     }
 
-    public String getUser() {
-        return user;
+    public String getOwnerId() {
+        return ownerId;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getUserName() {

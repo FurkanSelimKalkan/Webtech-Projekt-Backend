@@ -39,11 +39,6 @@ public class VotingRestController {
         return ResponseEntity.created(uri).build();
     }
 
-/*    @PutMapping(path = "/api/v1/votings/{id}")
-    public ResponseEntity<Voting> updateVoting(@PathVariable Long id, @RequestBody VotingManipulationRequest request) {
-        var voting = votingService.update(id, request);
-        return voting != null? ResponseEntity.ok(voting) : ResponseEntity.notFound().build();
-    } */
 
     @PutMapping(path = "/api/v1/votings/{id}")
     public ResponseEntity<Voting> updateVoting(@PathVariable Long id, @RequestBody VotingCountManipulationRequest request) {
