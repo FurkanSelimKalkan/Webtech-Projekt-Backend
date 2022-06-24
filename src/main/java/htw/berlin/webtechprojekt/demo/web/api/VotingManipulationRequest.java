@@ -1,5 +1,7 @@
 package htw.berlin.webtechprojekt.demo.web.api;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -8,6 +10,8 @@ import java.util.List;
 public class VotingManipulationRequest {
 
     @NotBlank(message = "Title Field cannot be empty")
+    @Min(5)
+    @Max(20)
     private String title;
     @NotBlank(message = "Image Field cannot be empty")
     private String image1;
