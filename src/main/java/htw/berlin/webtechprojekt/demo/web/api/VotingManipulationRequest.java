@@ -10,8 +10,7 @@ import java.util.List;
 public class VotingManipulationRequest {
 
     @NotBlank(message = "Title Field cannot be empty")
-    @Min(5)
-    @Max(20)
+    @Size(min= 5, max = 20)
     private String title;
     @NotBlank(message = "Image Field cannot be empty")
     private String image1;
