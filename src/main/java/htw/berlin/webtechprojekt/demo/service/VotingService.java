@@ -15,31 +15,32 @@ import java.util.stream.Collectors;
 public class VotingService {
 
     private final VotingRepository votingRepository;
+    private final VotingTransformer votingTransformer;
 
 
 
-    public VotingService(VotingRepository votingRepository) {
+    public VotingService(VotingRepository votingRepository, VotingTransformer votingTransformer) {
         this.votingRepository = votingRepository;
-
+        this.votingTransformer = votingTransformer;
     }
 
 
     public List<Voting> findAll() {
         List<VotingEntity> votings = votingRepository.findAll();
         return votings.stream()
-                .map(this::transformEntity)
+                .map(votingTransformer::transformEntity)
                 .collect(Collectors.toList());
     }
 
     public Voting findById(Long id) {
         var votingEntity = votingRepository.findById(id);
-        return votingEntity.map(this::transformEntity).orElse(null);
+        return votingEntity.map(votingTransformer::transformEntity).orElse(null);
     }
 
     public Voting create(VotingManipulationRequest request) {
         var votingEntity = new VotingEntity(request.getTitle(), request.getImage1(), request.getImage2(), request.getVotingsImage1(), request.getVotingsImage2(), request.getOwnerId(), request.getUserName(), request.getVotedUsers());
         votingEntity = votingRepository.save(votingEntity);
-        return transformEntity(votingEntity);
+        return votingTransformer.transformEntity(votingEntity);
     }
 
     public Voting update(Long id, VotingManipulationRequest request) {
@@ -56,7 +57,7 @@ public class VotingService {
         votingEntity.setVotingsImage2(request.getVotingsImage2());
         votingEntity = votingRepository.save(votingEntity);
 
-        return transformEntity(votingEntity);
+        return votingTransformer.transformEntity(votingEntity);
     }
 
     public Voting addUser(Long id, VotingCountManipulationRequest request) {
@@ -85,14 +86,14 @@ public class VotingService {
 
         if (containsChecker == true) {
             votingEntity = votingRepository.save(votingEntity);
-            return transformEntity(votingEntity);
+            return votingTransformer.transformEntity(votingEntity);
         } else {
             actualVotes.add(request.getVotingUser());
             votingEntity.setVotedUsers(actualVotes);
             votingEntity.setVotingsImage1(request.getVotingsImage1());
             votingEntity.setVotingsImage2(request.getVotingsImage2());
             votingEntity = votingRepository.save(votingEntity);
-            return transformEntity(votingEntity);
+            return votingTransformer.transformEntity(votingEntity);
         }
     }
 
@@ -105,18 +106,4 @@ public class VotingService {
         return true;
     }
 
-    private Voting transformEntity(VotingEntity votingEntity) {
-        return new Voting(
-                votingEntity.getId(),
-                votingEntity.getTitle(),
-                votingEntity.getImage1(),
-                votingEntity.getImage2(),
-                votingEntity.getVotingsImage1(),
-                votingEntity.getVotingsImage2(),
-                votingEntity.getOwner(),
-                votingEntity.getUserName(),
-                votingEntity.getVotedUsers()
-
-        );
-    }
 }
