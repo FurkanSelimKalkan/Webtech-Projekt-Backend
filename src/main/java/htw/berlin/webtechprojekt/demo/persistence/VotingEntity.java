@@ -34,14 +34,13 @@ public class VotingEntity {
     private String userName;
 
     @ElementCollection
-    //@Column(name = "voted_users")
     private List<String> votedUsers = new ArrayList<>();
 
 
     protected VotingEntity() {
     }
 
-    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2, String owner, String userName,List<String> votedUsers) {
+    public VotingEntity(String title, String image1, String image2, int votingsImage1, int votingsImage2, String owner, String userName, List<String> votedUsers) {
         this.title = title;
         this.image1 = image1;
         this.image2 = image2;

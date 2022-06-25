@@ -7,7 +7,6 @@ import htw.berlin.webtechprojekt.demo.web.api.VotingCountManipulationRequest;
 import htw.berlin.webtechprojekt.demo.web.api.VotingManipulationRequest;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,7 +15,6 @@ public class VotingService {
 
     private final VotingRepository votingRepository;
     private final VotingTransformer votingTransformer;
-
 
 
     public VotingService(VotingRepository votingRepository, VotingTransformer votingTransformer) {
@@ -61,9 +59,9 @@ public class VotingService {
     }
 
     public Voting addUser(Long id, VotingCountManipulationRequest request) {
-        System.out.println("User ID: " +request.getVotingUser());
-        System.out.println("Votings1: " +request.getVotingsImage1());
-        System.out.println("Votings2: " +request.getVotingsImage2());
+        System.out.println("User ID: " + request.getVotingUser());
+        System.out.println("Votings1: " + request.getVotingsImage1());
+        System.out.println("Votings2: " + request.getVotingsImage2());
         boolean containsChecker = false;
 
         var votingEntityOptional = votingRepository.findById(id);

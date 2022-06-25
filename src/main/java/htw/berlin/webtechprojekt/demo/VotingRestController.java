@@ -22,14 +22,14 @@ public class VotingRestController {
     }
 
     @GetMapping(path = "/api/v1/votings")
-    public ResponseEntity<List<Voting>> fetchVotings(){
+    public ResponseEntity<List<Voting>> fetchVotings() {
         return ResponseEntity.ok(votingService.findAll());
     }
 
     @GetMapping(path = "/api/v1/votings/{id}")
-    public ResponseEntity<Voting> fetchVotingById(@PathVariable Long id){
+    public ResponseEntity<Voting> fetchVotingById(@PathVariable Long id) {
         var voting = votingService.findById(id);
-        return voting != null? ResponseEntity.ok(voting) : ResponseEntity.notFound().build();
+        return voting != null ? ResponseEntity.ok(voting) : ResponseEntity.notFound().build();
     }
 
     @PostMapping(path = "/api/v1/votings")
@@ -42,14 +42,14 @@ public class VotingRestController {
 
     @PutMapping(path = "/api/v1/votings/{id}")
     public ResponseEntity<Voting> updateVoting(@PathVariable Long id, @RequestBody VotingCountManipulationRequest request) {
-        var voting = votingService.addUser(id,request);
-        return voting != null? ResponseEntity.ok(voting) : ResponseEntity.notFound().build();
+        var voting = votingService.addUser(id, request);
+        return voting != null ? ResponseEntity.ok(voting) : ResponseEntity.notFound().build();
     }
 
 
     @DeleteMapping(path = "/api/v1/votings/{id}")
     public ResponseEntity<Void> deleteVoting(@PathVariable Long id) {
         boolean successful = votingService.deleteById(id);
-        return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+        return successful ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 }
