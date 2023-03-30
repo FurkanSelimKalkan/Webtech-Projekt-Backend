@@ -1,4 +1,5 @@
 ![](src/main/java/htw/berlin/webtechprojekt/demo/assets/logo.png) 
+!!! ACHTUNG DA HEROKU DEN FREE PLAN SERVICE EINGESTELLT HAT FUNKTIONIERT DIE WEBSITE NICHT MEHR !!!
 Klicke [hier](https://this-or-that-webapp-frontend.herokuapp.com/) um auf unsere Website zu kommen
 
 # Webtech-Projekt
